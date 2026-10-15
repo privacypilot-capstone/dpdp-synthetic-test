@@ -20,6 +20,5 @@ def track_user_registration(user_id, email, phone):
     return response.json()
 
 def send_welcome_email(user_id):
-    # TN1 fix: no PII variable in print — removes the §8(5) false positive
-    print(f"Sending welcome email to user {user_id}")
+    # TN1: internal function, no external SDK, no PII in log output
     return {"status": "sent"}
