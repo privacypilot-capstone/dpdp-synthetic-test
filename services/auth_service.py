@@ -1,6 +1,7 @@
 """
 Authentication service — Aadhaar verification and login.
 """
+
 import logging
 import requests
 
@@ -10,8 +11,7 @@ UIDAI_URL = "https://uidai.gov.in/api/verify"
 
 
 def verify_aadhaar(user_id, aadhaar_number):
-    # VIOLATION V3: aadhaar number written to logger — Section 8(5)
-    logger.info("Verifying aadhaar=%s for user=%s", aadhaar_number, user_id)  # line 14
+    logger.info("Verifying aadhaar=%s for user=%s", aadhaar_number, user_id)
 
     response = requests.post(UIDAI_URL, json={"uid": aadhaar_number})
     return response.json()
